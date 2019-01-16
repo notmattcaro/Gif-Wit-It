@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gif Wit It</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+    <body>
+        <!-- title -->
+        <div id="titleContainer">
+            <h1>GIF WIT IT!</h1>
+        </div>
+        
+        <!-- column maker -->
+        <div id="columnMaker">
+            <!-- column 1 -->
+            <div id="gameContainer">
+                
+                <div id="gif-dump">
+                    <!-- giffs will be dumped here -->
+                </div>
+            </div>
+
+            <!-- column 2 -->
+            <div id="form-holder">
+                <form id="gif-form">
+                    <div id="subTitle">
+                        <label for="gif-input">Add a GIF</label>
+                    </div>
+                    <br>
+                    <input type="text" id="gif-input"><br>
+
+                    <!-- Button triggers new movie to be added -->
+                    <input id="add-gif" type="submit" value="Push me">
+                </form>
+                <div id="buttonsContainer">
+                    <div id="buttons-dump">
+                        <!-- Rendered Buttons will get Dumped Here  -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="js/script.js"></script>
+    </body>
+</html>
