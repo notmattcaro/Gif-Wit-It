@@ -1,15 +1,16 @@
-//create an array of gifs
-var gif = ["cats"];
+$(document).on("ready")
+   //create an array of gifs
+    var gif = ["legos"];
 
-//create an ajax call to retrieve information 
-function gifDump() {
+    //create an ajax call to retrieve information 
+    function gifDump() {
     //create variable that holds the attribute gif-name *this will be used later when new attribute is created*
     var thisGif = $(this).attr("data-gifName");
     //create general apiurl that holds a limit of 20
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + thisGif + "&api_key=dc6zaTOxFJmzC&limit=20";
 
     $("#gif-dump").empty();
-    
+
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -35,9 +36,9 @@ function gifDump() {
         }
 
     });
-}
+    }
 
-$(document).on("click", ".gifState", function() {
+    $(document).on("click", ".gifState", function() {
     var gifState = $(this).attr("data-state");
     var animate = $(this).attr("data-animate");
     var still = $(this).attr("data-still");
@@ -49,11 +50,11 @@ $(document).on("click", ".gifState", function() {
         $(this).attr("src", still);
         $(this).attr("data-state", "still");
     }
-});
+    });
 
-//create a button dump function 
-function buttonDump () {
-    
+    //create a button dump function 
+    function buttonDump () {
+
     var newGif = $("#gif-input").val().trim();
     newGif = "";
 
@@ -63,7 +64,7 @@ function buttonDump () {
     for (var i = 0; i < gif.length; i++) {
 
 
-        var newButton = $("<span>");
+        var newButton = $("<button>");
 
         //add stuff to new span
         newButton.addClass("gifList");
@@ -75,11 +76,11 @@ function buttonDump () {
 
     }
 
-}
+    }
 
-var itsPlaying = false;
+    var itsPlaying = false;
 
-$("#add-gif").on("click", function(event) {
+    $("#add-gif").on("click", function(event) {
     event.preventDefault();
 
 
@@ -93,9 +94,10 @@ $("#add-gif").on("click", function(event) {
 
         //make a global variable and a flag
         var itTakes2 = new Audio("music/itTakes2.mp3");
-        itTakes2.currentTime = 13;
+        itTakes2.currentTime = 13.2;
         itTakes2.play();
         itsPlaying = true;
+        alert("All rights are reserved to Rob Base & DJ EZ Rock for this song, this music is only for a class assignment!");
 
         buttonDump();
     } else {
@@ -104,9 +106,9 @@ $("#add-gif").on("click", function(event) {
         buttonDump();
     }
 
-});
+    });
 
+    //power of event delegation 
+    $("#buttons-dump").on("click", ".gifList", gifDump);
 
-$(document).on("click", ".gifList", gifDump);
-
-buttonDump();
+    buttonDump();
